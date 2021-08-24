@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+<br>
+<form method="POST" action="">
+    {% csrf_token %}
+<div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">search</i>
+          <input type="text" name="city" id="autocomplete-input" class="autocomplete">
+          <label for="autocomplete-input">Type the City name</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="submit" class="btn waves-effect waves-light red lighten-2" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+</form>
+
+{% if country_code %}
+
+<div id='result' class="card" style="padding: 10px;">
+    <h3>{{city}}</h3>
+    <hr style="border-color:#3A9688;">
+
+    <h4 style="color:#3A9688;"><i>country code:</i> {{country_code}}</h4>
+    <h4 style="color:#3A9688;"><i>coordinate:</i> {{coordinate}}</h4>
+    <h4 style="color:#3A9688;"><i>temperature:</i> {{temperature}}</h4>
+    <h4 style="color:#3A9688;"><i>pressure:</i> {{pressure}}</h4>
+    <h4 style="color:#3A9688;"><i>humidity:</i> {{humidity}}</h4>
+
+    
+</div>
+{% endif %}
+  
+
+{% endblock %}
